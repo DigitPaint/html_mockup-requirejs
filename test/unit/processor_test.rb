@@ -1,5 +1,5 @@
 require "html_mockup/release" 
-require "./lib/html_mockup-requirejs/processor"
+require "./lib/html_mockup_requirejs/processor"
 require "test/unit"
 
 class ProcessorTest < Test::Unit::TestCase
