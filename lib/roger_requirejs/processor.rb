@@ -1,3 +1,5 @@
+require "roger/release" 
+
 module RogerRequirejs
   class Processor < ::Roger::Release::Processors::Base
 
