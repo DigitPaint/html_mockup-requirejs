@@ -1,5 +1,5 @@
-module HtmlMockupRequirejs
-  class Processor < HtmlMockup::Release::Processors::Base
+module RogerRequirejs
+  class Processor < ::Roger::Release::Processors::Base
 
     def initialize(options = {})
       @options = {

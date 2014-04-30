@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "html_mockup-requirejs"
+  s.name = "roger_requirejs"
   s.version = "1.0.0"
   
   s.authors = ["Flurin Egger"]
   s.email = ["info@digitpaint.nl", "flurin@digitpaint.nl"]  
-  s.homepage = "http://github.com/digitpaint/html_mockup-requirejs"
-  s.summary = "Processor for using the r.js optimizerin HtmlMockup."
+  s.homepage = "http://github.com/digitpaint/roger_requirejs"
+  s.summary = "Processor for using the r.js optimizer in Roger."
   s.licenses = ["MIT"]
 
   s.date = Time.now.strftime("%Y-%m-%d")
@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
 
-  s.add_dependency("html_mockup", ["~> 0.8.0"])
+  s.add_dependency("roger", ["~> 0.10.0"])
 end
