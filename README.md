@@ -1,5 +1,8 @@
 # Roger RequireJS
 
+[![Gem Version](https://badge.fury.io/rb/roger_requirejs.png)](http://badge.fury.io/rb/roger_requirejs)
+[![Build Status](https://travis-ci.org/DigitPaint/roger_requirejs.png?branch=master)](https://travis-ci.org/DigitPaint/roger_requirejs)
+
 RequireJS processor for Roger
 
 ## Changes and versions
