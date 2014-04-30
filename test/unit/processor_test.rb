@@ -1,5 +1,4 @@
-require "html_mockup/release" 
-require "./lib/html_mockup_requirejs/processor"
+require File.dirname(__FILE__) + "/../../lib/roger_requirejs/processor"
 require "test/unit"
 
 class ProcessorTest < Test::Unit::TestCase
