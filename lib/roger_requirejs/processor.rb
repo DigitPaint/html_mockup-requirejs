@@ -125,3 +125,5 @@ module RogerRequirejs
 
   end
 end
+
+::Roger::Release::Processors.register(:requirejs, RogerRequirejs::Processor)
