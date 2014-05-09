@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = "roger_requirejs"
-  s.version = "1.1.0"
+  s.version = "1.1.1"
   
   s.authors = ["Flurin Egger"]
   s.email = ["info@digitpaint.nl", "flurin@digitpaint.nl"]  
@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
 
-  s.add_dependency("roger", ["~> 0.11.0"])
+  s.add_dependency("roger", [">= 0.11.0"])
 end
