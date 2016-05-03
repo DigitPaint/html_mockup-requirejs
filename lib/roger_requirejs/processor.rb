@@ -45,39 +45,34 @@ module RogerRequirejs
         target = release.build_path + target        
         release.log(self, "Optimizing #{build_file}")
                 
-        # Hack to create tempfile in build
-        t = Tempfile.new("requirejs", release.build_path)
-        tmp_build_dir = t.path
-        t.close
-        t.unlink
-      
-        # Run r.js optimizer
-        if target_type == :dir
-          output = `#{rjs_command} -o #{build_file} dir=#{tmp_build_dir}`
-        else
-          output = `#{rjs_command} -o #{build_file} out=#{tmp_build_dir}/out.js`
-        end
-        
-        release.debug(self, output)
-        
-        # Check if r.js succeeded
-        unless $?.success?
-          raise RuntimeError, "Asset compilation with node failed.\nr.js output:\n #{output}"
-        end
-        
-        if File.exist?(target)
-          release.log(self, "Removing target #{target}")
-          FileUtils.rm_rf(target)
-        end        
-        
-        
-        # Move the tmp_build_dir to target
-        if target_type == :dir
-          FileUtils.mv(tmp_build_dir, target)
-        else
-          FileUtils.mv("#{tmp_build_dir}/out.js", target)
-          FileUtils.rm_rf(tmp_build_dir)
-        end
+        Dir.mktmpdir {|tmp_build_dir|
+          # Run r.js optimizer
+          if target_type == :dir
+            output = `#{rjs_command} -o #{build_file} dir=#{tmp_build_dir}`
+          else
+            output = `#{rjs_command} -o #{build_file} out=#{tmp_build_dir}/out.js`
+          end
+
+          release.debug(self, output)
+
+          # Check if r.js succeeded
+          unless $?.success?
+            raise RuntimeError, "Asset compilation with node failed.\nr.js output:\n #{output}"
+          end
+
+          if File.exist?(target)
+            release.log(self, "Removing target #{target}")
+            FileUtils.rm_rf(target)
+          end
+
+
+          # Move the tmp_build_dir to target
+          if target_type == :dir
+            FileUtils.copy_entry(tmp_build_dir, target)
+          else
+            FileUtils.cp("#{tmp_build_dir}/out.js", target)
+          end
+        }
       end
     end
     
